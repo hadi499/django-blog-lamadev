@@ -1,0 +1,32 @@
+{% extends "blog/base.html" %} {% block content %}
+<div class="write">
+  <form class="writeForm" method="POST" enctype="multipart/form-data">
+    {% csrf_token %}
+    <div class="writeFormGroup">
+      <label for="image">
+        <i class="writeIcon fas fa-plus"></i>
+      </label>
+      <input id="image" name="image" type="file" style="display: none" />
+      <input
+        class="writeInput"
+        placeholder="Title"
+        id="title"
+        name="title"
+        type="text"
+        autofocus
+      />
+    </div>
+    <div class="writeFormGroup">
+      <textarea
+        class="writeInput writeText"
+        placeholder="Tell your story..."
+        type="text"
+        id="content"
+        name="content"
+        autofocus
+      ></textarea>
+    </div>
+    <button class="writeSubmit" type="submit">Publish</button>
+  </form>
+</div>
+{% endblock content %}

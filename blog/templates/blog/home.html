@@ -1,0 +1,66 @@
+{% extends "blog/base.html" %}
+{% load static %}
+ {% block content %}
+<div class="header">
+  <div class="headerTitles">
+    <span class="headerTitleSm">Django Blog</span>
+    <span class="headerTitleLg">BLOG</span>
+  </div>
+  <img
+    class="headerImg"
+    src="{% static 'img/header.png' %}"
+    alt=""
+  />
+</div>
+<div class="home">
+  <div class="posts">
+    {% for post in posts %}
+    <div class="post">
+      <img class="postImg" src="{{ post.image.url }}" alt="" />
+      <div class="postInfo">
+        <span class="postTitle"
+          ><a class="link" href="{% url 'post-detail' post.id%}">
+            {{ post.title}}</a
+          >
+        </span>
+        <hr />
+        <span class="postDate">{{ post.date_posted|date:"F d, Y" }}</span>
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+  <div class="sidebar">
+    <div class="sidebarItem">
+      <span class="sidebarTitle">ABOUT ME</span>
+      <img
+        src="https://themegoods-cdn-pzbycso8wng.stackpathdns.com/grandblog/demo/wp-content/uploads/2015/11/aboutme.jpg"
+        alt=""
+      />
+      <p>
+        Laboris sunt aute cupidatat velit magna velit ullamco dolore mollit amet
+        ex esse.Sunt eu ut nostrud id quis proident.
+      </p>
+    </div>
+    <div class="sidebarItem">
+      <span class="sidebarTitle">CATEGORIES</span>
+      <ul class="sidebarList">
+        <li class="sidebarListItem">Life</li>
+        <li class="sidebarListItem">Music</li>
+        <li class="sidebarListItem">Sport</li>
+        <li class="sidebarListItem">Style</li>
+        <li class="sidebarListItem">Tech</li>
+        <li class="sidebarListItem">Cinema</li>
+      </ul>
+    </div>
+    <div class="sidebarItem">
+      <span class="sidebarTitle">FOLLOW US</span>
+      <div class="sidebarSocial">
+        <i class="sidebarIcon fab fa-facebook-square"></i>
+        <i class="sidebarIcon fab fa-instagram-square"></i>
+        <i class="sidebarIcon fab fa-pinterest-square"></i>
+        <i class="sidebarIcon fab fa-twitter-square"></i>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock content %}

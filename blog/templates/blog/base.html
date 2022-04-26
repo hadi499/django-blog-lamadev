@@ -1,0 +1,67 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <style>
+      * {
+        margin: 0;
+      }
+    </style>
+    <style>
+      .link {
+        text-decoration: none;
+        color: inherit;
+      }
+    </style>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+      integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w=="
+      crossorigin="anonymous"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@100;200;300;400;500;600;700&family=Lora:ital@0;1&family=Varela&family=Varela+Round&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" type="text/css" href="{% static 'styles.css' %}" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div class="top">
+      <div class="topLeft">
+        <i class="topIcon fab fa-facebook-square"></i>
+        <i class="topIcon fab fa-instagram-square"></i>
+        <i class="topIcon fab fa-pinterest-square"></i>
+        <i class="topIcon fab fa-twitter-square"></i>
+      </div>
+      <div class="topCenter">
+        <ul class="topList">
+          <li class="topListItem">
+            <a class="link" href="{% url 'home' %}">HOME</a>
+          </li>
+          <li class="topListItem">
+            <a class="link" href="{% url 'about' %}">ABOUT</a>
+          </li>
+          <li class="topListItem">CONTACT</li>
+          <li class="topListItem">
+            <a class="link" href="{% url 'create' %}">WRITE</a>
+          </li>
+        </ul>
+      </div>
+      <div class="topRight">
+        <ul class="topList">
+          <li class="topListItem">LOGOUT</li>
+          <li class="topListItem">LOGIN</li>
+          <li class="topListItem">REGISTER</li>
+        </ul>
+
+        <i class="topSearchIcon fas fa-search"></i>
+      </div>
+    </div>
+
+    {% block content %}{% endblock %}
+  </body>
+</html>

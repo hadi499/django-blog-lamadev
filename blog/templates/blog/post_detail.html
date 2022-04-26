@@ -1,0 +1,21 @@
+{% extends "blog/base.html" %} {% block content %}
+
+<div class="singlePost">
+  <div class="singlePostWrapper">
+    <img class="singlePostImg" src="{{ object.image.url }}" alt="" />
+    <h1 class="singlePostTitle">
+      {{ object.title }}
+      <div class="singlePostEdit">
+        <a href="{% url 'post-update' object.id %}"><i class="singlePostIcon far fa-edit" ></i></a>
+        <a href="{% url 'post-delete' object.id %}"><i class="singlePostIcon far fa-trash-alt"></i></a>        
+        
+      </div>
+    </h1>
+    <div class="singlePostInfo">
+      <span>{{ object.date_posted|date:"F d, Y" }}</span>
+    </div>
+    <p class="singlePostDesc">{{ object.content }}</p>
+  </div>
+</div>
+
+{% endblock %}
